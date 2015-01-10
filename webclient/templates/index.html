@@ -43,12 +43,19 @@
             <div class="panel panel-primary">
                 <div class="panel-heading">Extraire Audio à partir d'une video locale</div>
                 <div class="panel-body">
-                    <form action="{{ api_converter_url }}" method="post" enctype="multipart/form-data">
+                    {% comment %}<form action="{{ api_converter_url }}" method="post" enctype="multipart/form-data">
                         <p>
                             Video à uploader:
                             <input type="file" name="file">
                             <input type="submit" value="Envoyer pour extraction">
                         </p>
+                    </form>
+                    <br>{% endcomment %}
+                    <form class="form-inline" action="{{ api_converter_url }}" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <input type="file" class="form-control" name="file">
+                        </div>
+                        <button type="submit" class="btn btn-default">Envoyer pour extraction</button>
                     </form>
                 </div>
             </div>
@@ -56,7 +63,7 @@
             <div class="panel panel-success">
                 <div class="panel-heading">Extraire Audio à partir d'une video youtube</div>
                 <div class="panel-body">
-                    <form action="{{ api_youtube_converter_url }}" method="post" enctype="multipart/form-data">
+                    {% comment %}<form action="{{ api_youtube_converter_url }}" method="post" enctype="multipart/form-data">
                         <p>
                             Lien youtube:
                             <label>
@@ -64,6 +71,13 @@
                             </label>
                             <input type="submit" value="Envoyer pour extraction">
                         </p>
+                    </form>
+                    <br />{% endcomment %}
+                    <form class="form-inline" action="{{ api_youtube_converter_url }}" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Lien Youtube" name="youtube_link">
+                        </div>
+                        <button type="submit" class="btn btn-default">Envoyer pour extraction</button>
                     </form>
                 </div>
             </div>
