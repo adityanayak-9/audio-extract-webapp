@@ -1,0 +1,80 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Application d'extraction audio à partir de video locale ou youtube</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/starter-template.css' %}" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">ExtractInOneClick</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+{#            <li><a href="#contact">Contact</a></li>#}
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+        <div class="starter-template">
+            <h1>Bienvenue chez <span class="blue-text">ExtractInOneClick</span></h1>
+            <p class="lead">
+                Vous pouvez extraire l'audio de n'importe quelle video MP4.<br />
+                Ce n'est pas tout! Vous pouvez même fournir un lien youtube et récupérer l'audio.<br />
+                Tout ça par un simple clic! Allez enjoy :)
+            </p>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">Extraire Audio à partir d'une video locale</div>
+                <div class="panel-body">
+                    <form action="{{ api_converter_url }}" method="post" enctype="multipart/form-data">
+                        <p>
+                            Video à uploader:
+                            <input type="file" name="file">
+                            <input type="submit" value="Envoyer pour extraction">
+                        </p>
+                    </form>
+                </div>
+            </div>
+
+            <div class="panel panel-success">
+                <div class="panel-heading">Extraire Audio à partir d'une video youtube</div>
+                <div class="panel-body">
+                    <form action="{{ api_youtube_converter_url }}" method="post" enctype="multipart/form-data">
+                        <p>
+                            Lien youtube:
+                            <label>
+                                <input type="text" name="youtube_link">
+                            </label>
+                            <input type="submit" value="Envoyer pour extraction">
+                        </p>
+                    </form>
+                </div>
+            </div>
+
+      </div> <!-- /.starter-template -->
+
+    </div><!-- /.container -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  </body>
+</html>
