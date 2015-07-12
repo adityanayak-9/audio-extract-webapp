@@ -9,7 +9,7 @@ from api.classes import CalcClass
 import tempfile
 from django.http import HttpResponse
 
-UPLOAD_FOLDER = "/tmp/rest_ws/"
+UPLOAD_FOLDER = "/tmp/audio-extract-webapp/"
 ALLOWED_EXTENSIONS = ('mp4', )
 
 
